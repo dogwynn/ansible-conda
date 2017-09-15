@@ -70,7 +70,7 @@ def _find_conda(module, executable):
         if conda:
             return conda
     else:
-        if os.path.isfile(executable):
+        if os.path.isfile(os.path.expanduser(executable)):
             return executable
 
     module.fail_json(msg="could not find conda executable")
